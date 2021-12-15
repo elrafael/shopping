@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
 import { ShopReducer } from 'src/reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,6 +30,7 @@ import { ShopEffects } from 'src/effects';
     MatToolbarModule,
     MatBadgeModule,
     MatIconModule,
+    MatTableModule,
     StoreModule.forRoot( { shop: ShopReducer }),
     EffectsModule.forRoot([ShopEffects])
   ],
