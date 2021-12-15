@@ -13,10 +13,16 @@ export class CartComponent implements OnInit {
 
   public cart$: Observable<Product[]>;
 
+  displayedColumns: string[] = ['name', 'price', 'description'];
+  dataSource: any
+
   constructor(private readonly _store: Store) { }
 
   ngOnInit(): void {
     this.cart$ = this._store.select(getCart)
+    this._store.select(getCart).subscribe(products => {
+      this.dataSource = products
+    })
   }
 
 }
