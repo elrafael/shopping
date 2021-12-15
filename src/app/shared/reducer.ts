@@ -1,6 +1,6 @@
 import { ActionsUnion, ActionTypes } from "./action";
-import { Product } from "./app/interfaces/product.interface";
-import { Products } from "./app/mock/products";
+import { Product } from "../interfaces/product.interface";
+import { Products } from "../mock/products";
 
 export interface State {
   items?: Product[];

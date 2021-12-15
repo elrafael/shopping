@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AddToCart, GetItems, RemoveFromCart } from 'src/action';
-import { getProducts } from 'src/selectors';
+import { AddToCart, GetItems, RemoveFromCart } from 'src/app/shared/action';
+import { getProducts } from 'src/app/shared/selectors';
 import { Product } from '../interfaces/product.interface';
 @Component({
   selector: 'app-products',
