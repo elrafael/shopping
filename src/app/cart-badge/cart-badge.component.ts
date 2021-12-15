@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { getCart } from 'src/selectors';
-import { Product } from '../interfaces/product.interface';
-// import { getCartNumber, getSearchResults } from 'src/selectors';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { getCartTotal } from 'src/selectors';
 
 @Component({
   selector: 'app-cart-badge',
@@ -11,14 +10,12 @@ import { Product } from '../interfaces/product.interface';
 })
 export class CartBadgeComponent implements OnInit {
 
-  public items: Product[] = [];
+  public total$: Observable<number>;
 
   constructor(private readonly _store: Store) {}
 
   ngOnInit(): void {
-    this._store.select(getCart).subscribe((data: any) => {
-      this.items = data
-    })
+    this.total$ = this._store.select(getCartTotal)
   }
 
 }
