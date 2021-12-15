@@ -1,0 +1,12 @@
+<table>
+  <thead>
+      <td>Product</td>
+      <td>Price</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of cart$ | async">
+      <td>{{product.name}}</td>
+      <td>{{product.price | currency: "EUR"}}</td>
+    </tr>
+  </tbody>
+</table>
