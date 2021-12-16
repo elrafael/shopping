@@ -1,14 +1,20 @@
 <mat-card *ngFor="let product of products$ | async">
   <mat-card-title>{{product.name}}</mat-card-title>
-  <mat-card-content>
-    {{product.price | currency: "EUR"}}
-    <p>{{product.description}}</p>
+  <mat-card-content fxLayout="row" fxLayoutAlign="space-between">
     <ng-container *ngIf="product.image" >
-      <img src="{{product.image}}">
+      <div class="image" fxFlex="30%">
+        <img src="{{product.image}}">
+      </div>
     </ng-container>
+    <div fxFlex="50%">
+      <p [innerHTML]="product.description">{{product.description}}</p>
+    </div>
+    <div fxFlex="20%" fxFlexAlign="left">
+      {{product.price | currency: "EUR"}}
+      <button mat-button (click)="addToCart(product)">Buy</button>
+    </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="addToCart(product)">LIKE</button>
     <button mat-button (click)="removeFromCart(product)">SHARE</button>
   </mat-card-actions>
 
