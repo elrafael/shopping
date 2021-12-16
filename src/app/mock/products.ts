@@ -3,9 +3,10 @@ import { Product } from "../interfaces/product.interface";
 export const Products: Product[] = [
   {
     id: 1,
-    name: 'Product 001',
+    name: 'Super Nintendo',
     price: 100,
-    description: 'This is the product 001'
+    description: 'This is the product 001',
+    image: 'assets/images/product-001.jpg'
   },
   {
     id: 2,

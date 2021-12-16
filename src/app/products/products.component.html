@@ -1,8 +1,15 @@
-<ul>
-  <li *ngFor="let product of products$ | async">
-    {{product.name}} {{product.price | currency: "EUR"}}
+<mat-card *ngFor="let product of products$ | async">
+  <mat-card-title>{{product.name}}</mat-card-title>
+  <mat-card-content>
+    {{product.price | currency: "EUR"}}
     <p>{{product.description}}</p>
-    <button (click)="addToCart(product)">Add to cart</button>
-    <button (click)="removeFromCart(product)">Remove from cart</button>
-  </li>
-</ul>
+    <ng-container *ngIf="product.image" >
+      <img src="{{product.image}}">
+    </ng-container>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="addToCart(product)">LIKE</button>
+    <button mat-button (click)="removeFromCart(product)">SHARE</button>
+  </mat-card-actions>
+
+</mat-card>
