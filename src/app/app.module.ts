@@ -7,14 +7,12 @@ import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { CartBadgeComponent } from './cart-badge/cart-badge.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
+
 import { StoreModule } from '@ngrx/store';
 import { ShopReducer } from 'src/app/shared/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ShopEffects } from 'src/app/shared/effects';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,10 +25,7 @@ import { ShopEffects } from 'src/app/shared/effects';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatBadgeModule,
-    MatIconModule,
-    MatTableModule,
+    SharedModule,
     StoreModule.forRoot( { shop: ShopReducer }),
     EffectsModule.forRoot([ShopEffects])
   ],
