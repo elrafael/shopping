@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -17,9 +18,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ],
   exports: [
+    FlexLayoutModule,
     MatToolbarModule,
     MatBadgeModule,
     MatIconModule,
