@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTableModule,
     MatCardModule,
     MatButtonModule,
+    MatInputModule,
     FlexLayoutModule
   ],
   exports: [
@@ -28,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
