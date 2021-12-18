@@ -72,12 +72,28 @@ export function ShopReducer(state = initialState, action: ActionsUnion) {
       };
 
     case ActionTypes.Remove:
+      const products = state.cart.products.filter((item: ProductsInCart) => item.product.id !== action.payload.id)
+      let valueRemoved = 0
+      products.map(product => {
+        valueRemoved += product.product.price * product.quantity
+      })
+      const cartRemoved: Cart = {
+        discount: state.cart.discount,
+        products: products,
+        value: valueRemoved,
+        isPercent: state.cart.isPercent,
+        total: (state.cart.total > 0) ? state.cart.total - 1 : 0
+      }
       return {
         ...state,
-        // cart: [...state.cart.filter((item: any) => item.id !== action.payload.id)]
-        cart: [state.cart]
+        cart: cartRemoved
+        // cart: state.cart
       };
 
+    case ActionTypes.IncreaseQuantity:
+      return {
+        ...state
+      }
     default:
       return { ...state };
   }
