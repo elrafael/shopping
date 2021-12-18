@@ -1,4 +1,15 @@
 table {
-  width: 70%;
+  width: 100%;
 }
 img { width: 100%; height: auto;}
+.mat-column-image {
+  width: 10%; padding: auto 10px;
+}
+.mat-column-name { width: 50%; }
+.mat-column-price { }
+.mat-column-quantity {
+  font-size: 12px;
+  mat-form-field {
+    width: 10%; margin-top: 5px;
+  }
+ }
