@@ -18,13 +18,13 @@
   <ng-container matColumnDef="quantity">
     <th mat-header-cell *matHeaderCellDef> Quantity </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-icon-button>
+      <button mat-icon-button (click)="decreaseQuantity(element.product)">
         <mat-icon>remove</mat-icon>
       </button>
       <mat-form-field appearance="outline">
         <input type="number" matInput formControlName="quantity" value="{{element.quantity}}">
       </mat-form-field>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="increaseQuantity(element.product)">
         <mat-icon>add</mat-icon>
       </button>
     </td>
@@ -34,6 +34,8 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+
+<pre *ngIf="!emptyCart">{{cart$ | async | json}}</pre>
 
 <ng-container *ngIf="emptyCart">
   O carrinho está vazio. Toca a comprar <a routerLink="/products">aqui</a>

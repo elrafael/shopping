@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { getCart, getProducts } from 'src/app/shared/selectors';
 import { Cart } from '../interfaces/cart.interface';
 import { Product } from '../interfaces/product.interface';
+import { DecreaseQuantity, IncreaseQuantity } from '../shared/action';
 
 @Component({
   selector: 'app-cart',
@@ -24,12 +25,24 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart$ = this._store.select(getCart)
     this._store.select(getCart).subscribe(cart => {
-      if ( cart ) {
+      if ( cart && cart.products.length > 0 ) {
         this.dataSource = cart.products
       } else {
         this.emptyCart = true
       }
     })
+  }
+
+  increaseQuantity(product) {
+    this._store.dispatch(
+      new IncreaseQuantity(product)
+    )
+  }
+
+  decreaseQuantity(product) {
+    this._store.dispatch(
+      new DecreaseQuantity(product)
+    )
   }
 
 }
