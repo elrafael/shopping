@@ -26,7 +26,14 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot( { shop: ShopReducer }),
+    StoreModule.forRoot( {shop: ShopReducer }/*, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+      },
+    }*/),
     EffectsModule.forRoot([ShopEffects])
   ],
   providers: [],
