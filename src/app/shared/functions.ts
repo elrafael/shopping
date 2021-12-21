@@ -5,7 +5,11 @@ import { Cart } from '../interfaces/cart.interface';
 export function cloneObj(obj: any) {
   return cloneDeep(obj);
 }
-
+/**
+ * Format the cart
+ * @param cart Cart to be formated
+ * @returns cart
+ */
 export function formatCart(cart: Cart) {
   cart.products = uniqBy(cart.products, e => {
     return e.product.id
